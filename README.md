@@ -11,11 +11,11 @@
       - Signals the child through the pipe
       - Waits for the child to finish using waitpid()
       - Prints "Child process has completed."
-iv. Child process:
-   - Waits until parent signals through the pipe
-   - Prints the child PID
-   - Executes "ls -l" using execlp()
-v. Errors are handled with perror() and proper exit codes.
+    iv. Child process:
+        - Waits until parent signals through the pipe
+        - Prints the child PID
+        - Executes "ls -l" using execlp()
+    v. Errors are handled with perror() and proper exit codes.
 
 How to compile:
 gcc -Wall -Wextra -O2 -o process_sync.c
