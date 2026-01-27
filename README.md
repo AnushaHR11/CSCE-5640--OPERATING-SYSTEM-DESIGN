@@ -4,18 +4,18 @@
     Files: process_sync.c
 
    What the program does:
-   1) Creates a pipe to synchronize output order.
-   2) Calls fork() to create a child process.
-   3) Parent process:
+   i. Creates a pipe to synchronize output order.
+   ii. Calls fork() to create a child process.
+   iii. Parent process:
       - Prints the parent PID
       - Signals the child through the pipe
       - Waits for the child to finish using waitpid()
       - Prints "Child process has completed."
-  4) Child process:
+iv. Child process:
    - Waits until parent signals through the pipe
    - Prints the child PID
    - Executes "ls -l" using execlp()
-5) Errors are handled with perror() and proper exit codes.
+v. Errors are handled with perror() and proper exit codes.
 
 How to compile:
 gcc -Wall -Wextra -O2 -o process_sync.c
