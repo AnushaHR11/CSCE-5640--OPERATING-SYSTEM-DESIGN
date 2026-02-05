@@ -24,12 +24,12 @@ How to run:
 ./process_sync
 
 Expected output (example):
-Parent Process ID: 5797
-Child Process ID: 5798
-total 28
--rw-rw-rw- 1 codespace root         64 Jan 27 03:22 README.md
--rwxrwxrwx 1 codespace codespace 16664 Jan 27 03:25 process_sync
--rw-rw-rw- 1 codespace codespace  2371 Jan 27 03:24 process_sync.c
+Parent Process ID: 5797 <br>
+Child Process ID: 5798 <br>
+total 28 <br>
+-rw-rw-rw- 1 codespace root         64 Jan 27 03:22 README.md <br>
+-rwxrwxrwx 1 codespace codespace 16664 Jan 27 03:25 process_sync <br>
+-rw-rw-rw- 1 codespace codespace  2371 Jan 27 03:24 process_sync.c <br>
 Child process has completed.
 
 2. Implementing the Producer-Consumer Problem with Semaphores
@@ -65,31 +65,31 @@ Parameter passing method:
   - the thread’s id
   - the pointer to the shared data structure (buffer + semaphores)
 
-Compile:
+Compile: <br>
   gcc -o producer_consumer producer_consumer.c -pthread
   
-How to run:
+How to run: <br>
 ./producer_consumer
 
-Expected output:
-Producer 1 produced item 1
-Consumer 1 consumed item 1
-Producer 1 produced item 2
-Consumer 1 consumed item 2
-Producer 1 produced item 3
-Consumer 1 consumed item 3
-Producer 1 produced item 4
-Producer 1 produced item 5
-Consumer 1 consumed item 4
-Producer 1 produced item 6
-Consumer 1 consumed item 5
-Producer 1 produced item 7
-Producer 1 produced item 8
-Consumer 1 consumed item 6
-Producer 1 produced item 9
-Consumer 1 consumed item 7
-Producer 1 produced item 10
-Consumer 1 consumed item 8
-Consumer 1 consumed item 9
-Consumer 1 consumed item 10
-Done. Produced=10, Consumed=10
+Expected output: <br>
+Producer 1 produced item 1 <br>
+Consumer 1 consumed item 1 <br>
+Producer 1 produced item 2 <br>
+Consumer 1 consumed item 2 <br>
+Producer 1 produced item 3 <br>
+Consumer 1 consumed item 3 <br>
+Producer 1 produced item 4 <br>
+Producer 1 produced item 5 <br>
+Consumer 1 consumed item 4 <br>
+Producer 1 produced item 6 <br>
+Consumer 1 consumed item 5 <br>
+Producer 1 produced item 7 <br>
+Producer 1 produced item 8 <br>
+Consumer 1 consumed item 6 <br>
+Producer 1 produced item 9 <br>
+Consumer 1 consumed item 7 <br>
+Producer 1 produced item 10 <br>
+Consumer 1 consumed item 8 <br>
+Consumer 1 consumed item 9 <br>
+Consumer 1 consumed item 10 <br>
+Done. Produced=10, Consumed=10 <br>
