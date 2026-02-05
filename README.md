@@ -1,7 +1,7 @@
 # CSCE-5640--OPERATING-SYSTEM-DESIGN
-1. Process Creation and Termination
-    Assignment 3: Process Creation and Termination
-    Files: process_sync.c
+1. Process Creation and Termination <br>
+    Assignment 3: Process Creation and Termination <br>
+    Files: process_sync.c <br>
 
    What the program does:
    i. Creates a pipe to synchronize output order.
@@ -32,9 +32,9 @@ total 28 <br>
 -rw-rw-rw- 1 codespace codespace  2371 Jan 27 03:24 process_sync.c <br>
 Child process has completed.
 
-2. Implementing the Producer-Consumer Problem with Semaphores
-    Assignment 5: Producer-Consumer using Semaphores
-    How it works:
+2. Implementing the Producer-Consumer Problem with Semaphores <br>
+    Assignment 5: Producer-Consumer using Semaphores <br>
+    How it works: <br>
    - We use a fixed-size shared buffer (circular queue).
    - Semaphores:
   1) empty: counts available empty slots in the buffer
