@@ -130,3 +130,34 @@ Enter the Available resources: 2 1 <br>
 System is in a SAFE state. <br>
 Safe sequence: P2 -> P0 -> P1 <br>
 
+
+<H2> 4. Implementing Multilevel Feedback Queue (MLFQ) Scheduling <br>
+    To understand adaptive CPU scheduling by simulating a Multilevel Feedback Queue (MLFQ) with three levels. <br>
+    Files: deadlock_wfg.cpp <br>
+
+What the program does: <br>
+i. Accepts number of processes and edges as input. <br>
+ii. Constructs a wait-for graph where an edge (u → v) means process u is waiting for process v. <br>
+iii. Uses Depth First Search (DFS) to traverse the graph. <br>
+iv. Detects a cycle by identifying a back edge during DFS. <br>
+v. If a cycle is found, reports that a deadlock exists and prints the processes involved. <br>
+vi. If no cycle is found, reports that no deadlock exists. <br>
+
+How to compile: <br>
+g++ -std=c++17 -Wall -Wextra -O2 deadlock_wfg.cpp -o deadlock_wfg <br>
+
+How to run (interactive mode): <br>
+./deadlock_wfg <br>
+
+Expected output: <br>
+Enter number of processes: 4 <br>
+Enter number of edges: 4 <br>
+Deadlock: YES <br>
+Processes in cycle: P1 -> P2 -> P3 -> P1 <br>
+
+Expected output (example – no deadlock case): <br>
+Enter number of processes: 3 <br>
+Enter number of edges: 2 <br>
+Deadlock: NO <br>
+No cycle found in the wait-for graph. <br>
+
