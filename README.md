@@ -1,6 +1,6 @@
 # CSCE-5640 : OPERATING-SYSTEM-DESIGN
 <H2> 1. Process Creation and Termination <br> </H2>
-    Assignment 3: Process Creation and Termination <br>
+    Assignment 1: Process Creation and Termination <br>
     Files: process_sync.c <br>
 
    What the program does: <br>
@@ -33,7 +33,7 @@ total 28 <br>
 Child process has completed.
 
 <h2>2. Implementing the Producer-Consumer Problem with Semaphores <br></h2>
-    Assignment 5: Producer-Consumer using Semaphores <br>
+    Assignment 2: Producer-Consumer using Semaphores <br>
     How it works: <br>
    - We use a fixed-size shared buffer (circular queue). <br>
    - Semaphores: <br>
@@ -93,3 +93,40 @@ Consumer 1 consumed item 8 <br>
 Consumer 1 consumed item 9 <br>
 Consumer 1 consumed item 10 <br>
 Done. Produced=10, Consumed=10 <br>
+
+<H2> 3.Implementing Round Robin Scheduling<br> </H2>
+Banker’s Algorithm Implementation <br>
+Files: bankers_algorithm.py <br>
+
+What the program does: <br>
+i. Accepts the number of processes and resource types from the user. <br>
+ii. Takes Allocation, Max, and Available matrices as input. <br>
+iii. Computes the Need matrix using (Need = Max − Allocation). <br>
+iv. Performs the Safety Algorithm: <br>
+    - Checks if the system is in a safe state. <br>
+    - Displays the safe sequence of processes if safe. <br>
+v. Allows the user to make a resource request: <br>
+    - Verifies Request ≤ Need. <br>
+    - Verifies Request ≤ Available. <br>
+    - Temporarily allocates resources and rechecks safety. <br>
+    - Grants or denies the request accordingly. <br>
+vi. Input validation and error handling are included. <br>
+
+How to run: <br>
+python bankers_algorithm.py <br>
+
+Expected output (example): <br>
+Enter the number of processes: 3 <br>
+Enter the number of resource types: 2 <br>
+Enter the Allocation matrix (3 rows, each with 2 integers): <br>
+1 0 <br>
+2 1 <br>
+0 3 <br>
+Enter the Max matrix (3 rows, each with 2 integers): <br>
+3 2 <br>
+3 3 <br>
+2 3 <br>
+Enter the Available resources: 2 1 <br>
+System is in a SAFE state. <br>
+Safe sequence: P2 -> P0 -> P1 <br>
+
