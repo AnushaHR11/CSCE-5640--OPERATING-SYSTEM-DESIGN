@@ -131,7 +131,7 @@ System is in a SAFE state. <br>
 Safe sequence: P2 -> P0 -> P1 <br>
 
 
-<H2> 4. Implementing Multilevel Feedback Queue (MLFQ) Scheduling <br></H2>H2>
+<H2> 4. Implementing Multilevel Feedback Queue (MLFQ) Scheduling <br></H2>
     To understand adaptive CPU scheduling by simulating a Multilevel Feedback Queue (MLFQ) with three levels. <br>
     Files: deadlock_wfg.cpp <br>
 
