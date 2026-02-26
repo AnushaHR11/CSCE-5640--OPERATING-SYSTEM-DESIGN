@@ -362,8 +362,139 @@ Step  Page  Fault  Frames<br>
   11     5      N  [2, 3, 4, 5]<br>
   12     2      N  [2, 3, 4, 5]<br>
 Optimal Page Faults: 5<br>
-
 Summary (faults):<br>
   FIFO   : 6<br>
   LRU    : 6<br>
   Optimal: 5<br>
+
+
+<H2> 6. Thrashing Detector <br></H2>
+    Objective: To simulate thrashing and calculate the working set of a process. <br>
+    Files: thrashing_detector.py<br>
+
+What the program does: <br>
+i. Accepts logical address space size, page size, and logical addresses as input. <br>
+ii. Converts logical addresses into page numbers to generate the reference string. <br>
+iii. Accepts number of frames and working set window size (Δ). <br>
+iv. Calculates the Working Set WS(t, Δ) at each time step. <br>
+v. Simulates page replacement using the LRU algorithm. <br>
+vi. Counts total page faults and calculates page fault rate. <br>
+vii. Identifies thrashing when the working set size exceeds available frames. <br>
+viii. Reports whether thrashing occurs and displays detailed step analysis. <br>
+
+How to compile (if C++ version): <br>
+g++ -std=c++17 -Wall -Wextra -O2 thrashing_detector.cpp -o thrashing_detector <br>
+
+How to run (Python version): <br>
+$ python3 thrashing_detector.py --frames 3 --window 4 --ref "1 2 3 4 1 2 5 1 2 3 4 5" --show_steps <br>
+
+=== Thrashing Detector Report === <br>
+References (pages): [1, 2, 3, 4, 1, 2, 5, 1, 2, 3, 4, 5] <br>
+Frames: 3 <br>
+Working set window Δ: 4 <br>
+Total references: 12 <br>
+LRU page faults: 10 (fault rate = 0.833) <br>
+WS violations (|WS|>frames): 7 (0.583 of steps) <br>
+Thrashing: YES <br>
+
+--- Step Details (frames=3, window=4) --- <br>
+Step  Page  WS_size  WS>F  Fault(LRU) <br>
+   1     1        1     N          Y <br>
+   2     2        2     N          Y <br>
+   3     3        3     N          Y <br>
+   4     4        4     Y          Y <br>
+   5     1        4     Y          Y <br>
+   6     2        4     Y          Y <br>
+   7     5        4     Y          Y <br>
+   8     1        3     N          N <br>
+   9     2        3     N          N <br>
+  10     3        4     Y          Y <br>
+  11     4        4     Y          Y <br>
+  12     5        4     Y          Y <br>
+
+How to run (using logical addresses): <br>
+$ python3 thrashing_detector.py --frames 3 --window 4 --las 8192 --page_size 1024 --addrs "0 20 1050 2048 2050 4096 5000" --show_steps <br>
+
+=== Thrashing Detector Report === <br>
+References (pages): [0, 0, 1, 2, 2, 4, 4] <br>
+Frames: 3 <br>
+Working set window Δ: 4 <br>
+Total references: 7 <br>
+LRU page faults: 4 (fault rate = 0.571) <br>
+WS violations (|WS|>frames): 0 (0.000 of steps) <br>
+Thrashing: NO <br>
+
+--- Step Details (frames=3, window=4) --- <br>
+Step  Page  WS_size  WS>F  Fault(LRU) <br>
+   1     0        1     N          Y <br>
+   2     0        1     N          N <br>
+   3     1        2     N          Y <br>
+   4     2        3     N          Y <br>
+   5     2        3     N          N <br>
+   6     4        3     N          Y <br>
+   7     4        2     N          N <br>
+
+Expected output: <br>
+Test1:<br>
+$ python3 thrashing_detector.py --frames 3 --window 3 --ref "1 2 3 4 1 2 5 1 2 3 4 5" <br>
+python3 thrashing_detector.py --frames 3 --window 4 --ref "1 2 3 4 1 2 5 1 2 3 4 5" <br>
+python3 thrashing_detector.py --frames 3 --window 6 --ref "1 2 3 4 1 2 5 1 2 3 4 5" <br>
+
+=== Thrashing Detector Report === <br>
+References (pages): [1, 2, 3, 4, 1, 2, 5, 1, 2, 3, 4, 5] <br>
+Frames: 3 <br>
+Working set window Δ: 3 <br>
+Total references: 12 <br>
+LRU page faults: 10 (fault rate = 0.833) <br>
+WS violations (|WS|>frames): 0 (0.000 of steps) <br>
+Thrashing: NO <br>
+
+=== Thrashing Detector Report === <br>
+References (pages): [1, 2, 3, 4, 1, 2, 5, 1, 2, 3, 4, 5] <br>
+Frames: 3 <br>
+Working set window Δ: 4 <br>
+Total references: 12 <br>
+LRU page faults: 10 (fault rate = 0.833) <br>
+WS violations (|WS|>frames): 7 (0.583 of steps) <br>
+Thrashing: YES <br>
+
+=== Thrashing Detector Report === <br>
+References (pages): [1, 2, 3, 4, 1, 2, 5, 1, 2, 3, 4, 5] <br>
+Frames: 3 <br>
+Working set window Δ: 6 <br>
+Total references: 12 <br>
+LRU page faults: 10 (fault rate = 0.833) <br>
+WS violations (|WS|>frames): 9 (0.750 of steps) <br>
+Thrashing: YES <br>
+
+Test2:<br>
+$ python3 thrashing_detector.py --frames 3 --window 3 --ref "7 0 1 2 0 3 0 4 2 3 0 3 2" <br>
+python3 thrashing_detector.py --frames 3 --window 4 --ref "7 0 1 2 0 3 0 4 2 3 0 3 2" <br>
+python3 thrashing_detector.py --frames 3 --window 6 --ref "7 0 1 2 0 3 0 4 2 3 0 3 2" <br>
+
+=== Thrashing Detector Report === <br>
+References (pages): [7, 0, 1, 2, 0, 3, 0, 4, 2, 3, 0, 3, 2] <br>
+Frames: 3 <br>
+Working set window Δ: 3 <br>
+Total references: 13 <br>
+LRU page faults: 9 (fault rate = 0.692) <br>
+WS violations (|WS|>frames): 0 (0.000 of steps) <br>
+Thrashing: NO <br>
+
+=== Thrashing Detector Report === <br>
+References (pages): [7, 0, 1, 2, 0, 3, 0, 4, 2, 3, 0, 3, 2] <br>
+Frames: 3<br>
+Working set window Δ: 4<br>
+Total references: 13<br>
+LRU page faults: 9 (fault rate = 0.692) <br>
+WS violations (|WS|>frames): 5 (0.385 of steps) <br>
+Thrashing: YES <br>
+
+=== Thrashing Detector Report === <br>
+References (pages): [7, 0, 1, 2, 0, 3, 0, 4, 2, 3, 0, 3, 2] <br>
+Frames: 3 <br>
+Working set window Δ: 6 <br>
+Total references: 13 <br>
+LRU page faults: 9 (fault rate = 0.692) <br>
+WS violations (|WS|>frames): 10 (0.769 of steps) <br>
+Thrashing: YES <br>
