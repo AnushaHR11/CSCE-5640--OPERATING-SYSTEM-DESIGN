@@ -540,59 +540,47 @@ Enter block sizes: 100 500 200 300 600 <br>
 Enter number of processes: 4 <br>
 Enter process sizes: 212 417 112 426 <br>
 
-First Fit:
-------------------------------------------------------------
-Process   Size      Block Allocated   Leftover in Block
-------------------------------------------------------------
-1         212       2                 176
-2         417       5                 183
-3         112       2                 176
-4         426       Not Allocated     -
-------------------------------------------------------------
-Remaining memory in all blocks:
-Block 1: 100
-Block 2: 176
-Block 3: 200
-Block 4: 300
-Block 5: 183
+First Fit:<br>
+Process   Size      Block Allocated   Leftover in Block<br>
+1         212       2                 176<br>
+2         417       5                 183<br>
+3         112       2                 176<br>
+4         426       Not Allocated     -<br>
+Remaining memory in all blocks:<br>
+Block 1: 100<br>
+Block 2: 176<br>
+Block 3: 200<br>
+Block 4: 300<br>
+Block 5: 183<br>
+Internal Fragmentation (First Fit): 959<br>
 
-Internal Fragmentation (First Fit): 959
+Best Fit:<br>
+Process   Size      Block Allocated   Leftover in Block<br>
+1         212       4                 88<br>
+2         417       2                 83<br>
+3         112       3                 88<br>
+4         426       5                 174<br>
+Remaining memory in all blocks:<br>
+Block 1: 100<br>
+Block 2: 83<br>
+Block 3: 88<br>
+Block 4: 88<br>
+Block 5: 174<br>
+Internal Fragmentation (Best Fit): 533<br>
 
-Best Fit:
-------------------------------------------------------------
-Process   Size      Block Allocated   Leftover in Block
-------------------------------------------------------------
-1         212       4                 88
-2         417       2                 83
-3         112       3                 88
-4         426       5                 174
-------------------------------------------------------------
-Remaining memory in all blocks:
-Block 1: 100
-Block 2: 83
-Block 3: 88
-Block 4: 88
-Block 5: 174
-
-Internal Fragmentation (Best Fit): 533
-
-Worst Fit:
-------------------------------------------------------------
-Process   Size      Block Allocated   Leftover in Block
-------------------------------------------------------------
-1         212       5                 276
-2         417       2                 83
-3         112       5                 276
-4         426       Not Allocated     -
-------------------------------------------------------------
-Remaining memory in all blocks:
-Block 1: 100
-Block 2: 83
-Block 3: 200
-Block 4: 300
-Block 5: 276
-
-Internal Fragmentation (Worst Fit): 959
+Worst Fit:<br>
+Process   Size      Block Allocated   Leftover in Block<br>
+1         212       5                 276<br>
+2         417       2                 83<br>
+3         112       5                 276<br>
+4         426       Not Allocated     -<br>
+Remaining memory in all blocks:<br>
+Block 1: 100<br>
+Block 2: 83<br>
+Block 3: 200<br>
+Block 4: 300<br>
+Block 5: 276<br>
+Internal Fragmentation (Worst Fit): 959<br>
 
 
 
