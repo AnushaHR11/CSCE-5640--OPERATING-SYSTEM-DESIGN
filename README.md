@@ -593,3 +593,53 @@ Block 4: 300
 Block 5: 276
 
 Internal Fragmentation (Worst Fit): 959
+
+
+
+<H2> 8. Paging Simulator <br></H2>
+Objective: To simulate logical to physical address translation using paging technique. <br>
+Files: paging_simulator.py <br>
+
+Concept: <br>
+Paging:<br>
+Paging is a memory management technique where the logical memory is divided into fixed-size pages and physical memory is divided into frames of the same size. A page table is used to map logical pages to physical frames.<br>
+
+Logical Address:<br>
+A logical address consists of two parts: page number and offset. The page number identifies the page, and the offset identifies the exact location within that page.<br>
+
+Physical Address:<br>
+The physical address is obtained using the page table, where the page number is mapped to a frame number, and the offset remains unchanged.<br>
+
+What the program does: <br>
+i. Accepts logical address space size as input. <br>
+ii. Accepts page size as input. <br>
+iii. Calculates number of pages in logical address space. <br>
+iv. Accepts logical address for translation. <br>
+v. Converts logical address into page number and offset. <br>
+vi. Maps page number to frame number using page table. <br>
+vii. Displays the corresponding physical address. <br>
+viii. Handles invalid addresses (out of range). <br>
+
+How to run (Python version): <br>
+python3 paging_simulator.py <br>
+
+Expected output: <br>
+Sample Test:<br>
+$ python3 paging_simulator.py<br>
+Enter logical address space size: 1024<br>
+Enter page size: 128<br>
+Enter logical address: 40<br>
+
+Logical address 40 maps to page 0, offset 40.<br>
+Physical address: Frame 0, offset 40.<br>
+Physical address value: 40<br>
+
+samole test 2: <br>
+$  python3 paging_simulator.py<br>
+Enter logical address space size: 1024<br>
+Enter page size: 128<br>
+Enter logical address: 140<br>
+
+Logical address 140 maps to page 1, offset 12.<br>
+Physical address: Frame 1, offset 12.<br>
+Physical address value: 140<br>
