@@ -313,7 +313,7 @@ Summary (faults): <br>
   Optimal: 7<br>
 
   Test 3: <br>
-$ python3 page_replacement.py --frames 4 --ref "2 3 2 1 5 2 4 5 3 2 5 2" <br>
+$ python3 page_replacement.py <br>
 Reference string: ['2', '3', '2', '1', '5', '2', '4', '5', '3', '2', '5', '2'] <br>
 Frames: 4 <br>
 
