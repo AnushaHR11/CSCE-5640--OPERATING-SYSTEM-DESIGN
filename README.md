@@ -161,6 +161,8 @@ Enter number of edges: 2 <br>
 Deadlock: NO <br>
 No cycle found in the wait-for graph. <br>
 
+
+
 <H2> 5. Simulate Page Replacement Algorithms <br></H2>
     Objective: To evaluate FIFO, LRU, and Optimal page replacement algorithms. <br>
     Files: page_replacement.py <br>
@@ -368,6 +370,7 @@ Summary (faults):<br>
   Optimal: 5<br>
 
 
+
 <H2> 6. Thrashing Detector <br></H2>
     Objective: To simulate thrashing and calculate the working set of a process. <br>
     Files: thrashing_detector.py<br>
@@ -498,3 +501,95 @@ Total references: 13 <br>
 LRU page faults: 9 (fault rate = 0.692) <br>
 WS violations (|WS|>frames): 10 (0.769 of steps) <br>
 Thrashing: YES <br>
+
+
+
+  <H2> 7. Simulate Dynamic Storage Allocation <br></H2>
+Objective: To simulate and compare First-Fit, Best-Fit, and Worst-Fit memory allocation strategies for dynamic memory management. <br>
+Files: dynamic_storage_allocation.py <br>
+
+Algorithms: <br>
+First-Fit:<br>
+Allocates each process to the first memory block that is large enough to hold it. It is simple and fast because it scans memory from the beginning and stops at the first suitable block.<br>
+
+Best-Fit:<br>
+Allocates each process to the smallest available memory block that is large enough. It tries to reduce wasted space, but it may take more time because all blocks must be checked to find the best one.<br>
+
+Worst-Fit:<br>
+Allocates each process to the largest available memory block. The idea is to leave larger remaining spaces after allocation, but this may waste big blocks quickly.<br>
+
+What the program does: <br>
+i. Accepts the number of memory blocks and their sizes as input. <br>
+ii. Accepts the number of processes and their sizes as input. <br>
+iii. Simulates First-Fit memory allocation strategy. <br>
+iv. Simulates Best-Fit memory allocation strategy. <br>
+v. Simulates Worst-Fit memory allocation strategy. <br>
+vi. Displays the allocation of each process to a memory block for all strategies. <br>
+vii. Displays the leftover memory in each block after allocation. <br>
+viii. Counts and displays the total internal fragmentation for each strategy. <br>
+ix. Compares the performance of First-Fit, Best-Fit, and Worst-Fit. <br>
+
+How to run (Python version): <br>
+python3 dynamic_storage_allocation.py <br>
+
+Expected output: <br>
+Sample Test:<br>
+$ python3 dynamic_storage_allocation.py <br>
+Enter number of memory blocks: 5 <br>
+Enter block sizes: 100 500 200 300 600 <br>
+Enter number of processes: 4 <br>
+Enter process sizes: 212 417 112 426 <br>
+
+First Fit:
+------------------------------------------------------------
+Process   Size      Block Allocated   Leftover in Block
+------------------------------------------------------------
+1         212       2                 176
+2         417       5                 183
+3         112       2                 176
+4         426       Not Allocated     -
+------------------------------------------------------------
+Remaining memory in all blocks:
+Block 1: 100
+Block 2: 176
+Block 3: 200
+Block 4: 300
+Block 5: 183
+
+Internal Fragmentation (First Fit): 959
+
+Best Fit:
+------------------------------------------------------------
+Process   Size      Block Allocated   Leftover in Block
+------------------------------------------------------------
+1         212       4                 88
+2         417       2                 83
+3         112       3                 88
+4         426       5                 174
+------------------------------------------------------------
+Remaining memory in all blocks:
+Block 1: 100
+Block 2: 83
+Block 3: 88
+Block 4: 88
+Block 5: 174
+
+Internal Fragmentation (Best Fit): 533
+
+Worst Fit:
+------------------------------------------------------------
+Process   Size      Block Allocated   Leftover in Block
+------------------------------------------------------------
+1         212       5                 276
+2         417       2                 83
+3         112       5                 276
+4         426       Not Allocated     -
+------------------------------------------------------------
+Remaining memory in all blocks:
+Block 1: 100
+Block 2: 83
+Block 3: 200
+Block 4: 300
+Block 5: 276
+
+Internal Fragmentation (Worst Fit): 959
